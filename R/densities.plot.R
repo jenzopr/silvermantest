@@ -1,3 +1,7 @@
+#' @importFrom stats density
+#' @importFrom graphics lines
+#' @importFrom graphics par
+#' @importFrom graphics plot
 densities.plot <- function(x, modes=1:4, mark_modes=TRUE, in_one=TRUE*(length(modes)<4)) {
 
   #temp function to identify x-,y-densityvalues of the modes

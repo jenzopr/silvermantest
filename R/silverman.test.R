@@ -10,6 +10,12 @@
 #' @param density.fun A function that returns a vector of density estimates
 #'
 #' @return An object of the class Silvermantest (see: \code{\link{Silvermantest-class}}).
+#'
+#' @importFrom stats sd
+#' @importFrom stats rnorm
+#' @importFrom stats density
+#' @importFrom stats predict
+#' @importFrom methods new
 #' @export
 silverman.test <- function(x, k, R=999, adjust=FALSE, digits=6, density.fun=NULL){
   # x: data
