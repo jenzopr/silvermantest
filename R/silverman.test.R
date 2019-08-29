@@ -11,6 +11,11 @@
 #'
 #' @return An object of the class Silvermantest (see: \code{\link{Silvermantest-class}}).
 #'
+#' @examples \dontrun{
+#' x <- c(rnorm(50), rnorm(50, mean = 3, sd = 0.1))
+#' silverman.test(x, k = 1)
+#' }
+#'
 #' @importFrom stats sd
 #' @importFrom stats rnorm
 #' @importFrom stats density
