@@ -1,5 +1,10 @@
 #' Plot densities for multiple modes.
 #'
+#' @param x Vector of data.
+#' @param modes The modes to plot density estimates for.
+#' @param mark_modes Whether or not to indicate modes in the plot.
+#' @param in_one Whether to produce one plot. Default is true for \code{length(modes) < 4}.
+#'
 #' @examples densities.plot(c(rnorm(10), rnorm(10, mean = 10)))
 #'
 #' @importFrom stats density
@@ -8,7 +13,7 @@
 #' @importFrom graphics plot
 #' @export
 densities.plot <- function(x, modes = 1:4, mark_modes = TRUE, in_one = TRUE * (length(modes) < 4)) {
-    #temp function to identify x-,y-densityvalues of the modes
+    #temp function to identify x-,y- densityvalues of the modes
     mode_ind = function(x, b) {
       y <- density(x, bw = b)$y
       d1 <- diff(y)
@@ -17,7 +22,7 @@ densities.plot <- function(x, modes = 1:4, mark_modes = TRUE, in_one = TRUE * (l
       return(ind)
     }
 
-    #the fuction shoolud only be started if all modes are integers
+    #the fuction should only be started if all modes are integers
     if (!any(modes != as.integer(modes))) {
       n <- length(modes)
       m <- ceiling(sqrt(n))
@@ -82,6 +87,6 @@ densities.plot <- function(x, modes = 1:4, mark_modes = TRUE, in_one = TRUE * (l
       }
     }
     else{
-      error("Only integer values are allowed for modes.")
+      stop("Only integer values are allowed for modes.")
     }
   }
