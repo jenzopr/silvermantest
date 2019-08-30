@@ -11,10 +11,9 @@
 #'
 #' @return An object of the class Silvermantest (see: \code{\link{Silvermantest-class}}).
 #'
-#' @examples \dontrun{
-#' x <- c(rnorm(50), rnorm(50, mean = 3, sd = 0.1))
+#' @examples
+#' x <- c(rpois(n = 50, lambda = 1), rnorm(n = 100, mean = 4))
 #' silverman.test(x, k = 1)
-#' }
 #'
 #' @importFrom stats sd
 #' @importFrom stats rnorm
@@ -29,12 +28,12 @@ silverman.test <- function(x, k, R=999, adjust=FALSE, digits=6, density.fun=NULL
 
   #check if seed is available (as done in boot package)
   #if so save it
-  seedAvailable = exists(x=".Random.seed",envir=.GlobalEnv,inherits=FALSE)
+  seedAvailable = exists(x=".Random.seed", envir=.GlobalEnv, inherits=FALSE)
   if(seedAvailable)
-    saved_seed = .Random.seed
+    saved_seed <- .Random.seed
   else{
     rnorm(1)
-    saved_seed = .Random.seed
+    saved_seed <- .Random.seed
   }
 
   #temp function for bootstrapping
@@ -69,17 +68,15 @@ silverman.test <- function(x, k, R=999, adjust=FALSE, digits=6, density.fun=NULL
       sp = splines::interpSpline(x,y)
       #adjusting the p-value
       if (p<0.005)
-        p=0
+        p <- 0
       else{
-        p = predict(sp,p)$y
-        p = round(p,digits)
+        p <- predict(sp,p)$y
+        p <- round(p,digits)
       }
     } else{
-      print("The option to adjust the p-value is valid only for k=1")
+      warning("The option to adjust the p-value is valid only for k=1")
     }
   }
-
-  #return(list(saved_seed=saved_seed,p_value=p))
-  test_obj = new("Silvermantest", data=x, p_value = p, saved_seed=saved_seed, k=k)
+  test_obj <- new("Silvermantest", data=x, p_value = p, saved_seed=saved_seed, k=k)
   return(test_obj)
 }

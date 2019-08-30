@@ -27,9 +27,7 @@ An object of the class Silvermantest (see: \code{\link{Silvermantest-class}}).
 The silvermantest tests the null hypothesis that an underlying density has at most \code{k} modes.
 }
 \examples{
-\dontrun{
-x <- c(rnorm(50), rnorm(50, mean = 3, sd = 0.1))
+x <- c(rpois(n = 50, lambda = 1), rnorm(n = 100, mean = 4))
 silverman.test(x, k = 1)
-}
 
 }

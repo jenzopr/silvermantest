@@ -10,50 +10,52 @@
 #'
 #' @return the smallest value so that the gaussian kernel density estimate of the given data \code{x} has \code{k} modes.
 #'
+#' @examples h.crit(rnorm(10), k = 1)
+#'
 #' @export
-h.crit <- function(x, k, prec=6, density.fun=NULL){
-  if(is.null(density.fun)) {
-    density.fun <- function(x,h){density(x,bw=h,kernel ="gaussian")$y}
+h.crit <- function(x, k, prec = 6, density.fun = NULL) {
+  if (is.null(density.fun)) {
+    density.fun <- function(x, h) {
+      density(x, bw = h, kernel = "gaussian")$y
+    }
   }
 
-  digits=prec
-  prec=10^(-prec)
+  digits <- prec
+  prec <- 10 ^ (-prec)
   x <- sort(x)
   minh <- min(diff(x))		#minimal possible h
-  maxh <- diff(range(x))/2	#maximal possible h
+  maxh <- diff(range(x)) / 2	#maximal possible h
   a <- maxh
   b <- minh
-  zaehler=0
+  zaehler <- 0
 
-  while (abs(b-a)>prec){
-    m <- nr.modes(density.fun(x,a))
+  while (abs(b - a) > prec) {
+    m <- nr.modes(density.fun(x, a))
 
     b <- a
-    if (m > k){
+    if (m > k) {
       minh <- a
-      a <- (a + maxh)/2
+      a <- (a + maxh) / 2
     }
     else {
       maxh <- a
-      a <- (a - minh)/2
+      a <- (a - minh) / 2
     }
   }
-  a=round(a,digits)
+  a <- round(a, digits)
 
-  if(nr.modes( density.fun(x,a) ) <= k){
+  if (nr.modes(density.fun(x, a)) <= k) {
     #subtract until more than k modes
-    while(nr.modes( density.fun(x,a) ) <= k){
-      a = a - prec
+    while (nr.modes(density.fun(x, a)) <= k) {
+      a <- a - prec
     }
-    a=a+prec
+    a <- a + prec
   }
-
-  if(nr.modes( density.fun(x,a) ) > k){
+  if (nr.modes(density.fun(x, a)) > k) {
     #add until nr. of moodes correct
-    while(nr.modes( density.fun(x,a) ) > k){
-      a = a + prec
+    while (nr.modes(density.fun(x, a)) > k) {
+      a <- a + prec
     }
   }
-
   a
 }

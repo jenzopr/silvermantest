@@ -22,3 +22,7 @@ the smallest value so that the gaussian kernel density estimate of the given dat
 Calculates the smallest value so that the gaussian kernel density estimate of the given data \code{x} has \code{k} modes.
 The smaller you choose the bandwidth for a kernel density estimate, the larger the number of modes becomes. This function calculates the smallest value leading to a kernel density estimate with \code{k} number of modes.
 }
+\examples{
+h.crit(rnorm(10), k = 1)
+
+}

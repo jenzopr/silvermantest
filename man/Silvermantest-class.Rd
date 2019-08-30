@@ -6,3 +6,15 @@
 \description{
 The Silvermantest-class.
 }
+\section{Slots}{
+
+\describe{
+\item{\code{data}}{The underlying test data}
+
+\item{\code{p_value}}{The p-value of the test}
+
+\item{\code{saved_seed}}{The random seed that was used during calculation}
+
+\item{\code{k}}{The number of modes tested}
+}}
+

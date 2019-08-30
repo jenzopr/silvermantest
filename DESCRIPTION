@@ -6,7 +6,7 @@ Authors@R: c(
     person(given = "Florian", family = "Schwaiger", email = "schwaige@mathematik.uni-marburg.de", role = c("aut")),
     person(given = "Hajo", family = "Holzmann", email = "holzmann@mathematik.uni-marburg.de", role = c("aut")),
     person(given = "Jens", family = "Preussner", email = "jens.preussner@mpi-bn.mpg.de", role = c("cre"), comment = c(ORCID = "0000-0003-1927-3458")))
-Description: A set of tools to test the number of modes of an empirical density. Furthermore functions visualizing test from a range of parameters, plotting multiple densities for given number of modes, calculating a critical bandwidth and determining the number of modes for a given (empirical) density are available.
+Description: Tests the number of modes of an empirical density using the method described in Silverman (1981) <https://www.jstor.org/stable/2985156>. Furthermore functions visualizing test from a range of parameters, plotting multiple densities for given number of modes, calculating a critical bandwidth and determining the number of modes for a given (empirical) density are available.
 URL: https://github.com/jenzopr/silvermantest
 License: GPL-2
 Encoding: UTF-8
