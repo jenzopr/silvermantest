@@ -7,6 +7,8 @@
 #'
 #' @examples densities.plot(c(rnorm(10), rnorm(10, mean = 10)))
 #'
+#' @return The function does not return anything, but creates a plot.
+#'
 #' @importFrom stats density
 #' @importFrom graphics lines
 #' @importFrom graphics par

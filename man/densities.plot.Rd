@@ -7,6 +7,18 @@
 densities.plot(x, modes = 1:4, mark_modes = TRUE, in_one = TRUE *
   (length(modes) < 4))
 }
+\arguments{
+\item{x}{Vector of data.}
+
+\item{modes}{The modes to plot density estimates for.}
+
+\item{mark_modes}{Whether or not to indicate modes in the plot.}
+
+\item{in_one}{Whether to produce one plot. Default is true for \code{length(modes) < 4}.}
+}
+\value{
+The function does not return anything, but creates a plot.
+}
 \description{
 Plot densities for multiple modes.
 }

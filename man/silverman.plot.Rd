@@ -15,6 +15,9 @@ silverman.plot(x, kmin = 1, kmax = 5, alpha = 0.05, adjust = FALSE)
 
 \item{adjust}{Perform p-value adjustment in case of \code{k=1} (see Hall and York).}
 }
+\value{
+The function does not return anything, but creates a plot.
+}
 \description{
 P-values are obtained using the \code{silverman.test} function with the number of modes ranging from \code{kmin} to \code{kmax}.
 }

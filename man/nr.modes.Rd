@@ -9,6 +9,9 @@ nr.modes(y)
 \arguments{
 \item{y}{vector of y-values of a density function}
 }
+\value{
+The number of modes
+}
 \description{
 Calculates the number of modes for given y-values of a density function.
 }

@@ -7,6 +7,8 @@
 #' @param alpha Significance level, shown as a dashed line in the resulting plot.
 #' @param adjust Perform p-value adjustment in case of \code{k=1} (see Hall and York).
 #'
+#' @return The function does not return anything, but creates a plot.
+#'
 #' @examples silverman.plot(x = c(rpois(n = 50, lambda = 1), rnorm(n = 100, mean = 4)))
 #'
 #' @importFrom graphics plot
